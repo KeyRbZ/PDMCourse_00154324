@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Ejericicio03_Compose</string>
+
+    <string name="text_composable_title">Componente de Texto</string>
+    <string name="text_composable_desc">Muestra texto y sigue las guías de Material.</string>
+
+    <string name="image_composable_title">Componente de Imagen</string>
+    <string name="image_composable_desc">Crea un composable que muestra un objeto Painter.</string>
+
+    <string name="row_composable_title">Componente Row</string>
+    <string name="row_composable_desc">Coloca sus hijos en una secuencia horizontal.</string>
+
+    <string name="column_composable_title">Componente Column</string>
+    <string name="column_composable_desc">Coloca sus hijos en una secuencia vertical.</string>
+</resources>
