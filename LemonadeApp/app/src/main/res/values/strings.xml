@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">LemonadeApp</string>
+    <string name="tap_tree">Toca el árbol de limón para elegir uno</string>
+    <string name="keep_tapping">Sigue tocando el limón para exprimirlo</string>
+    <string name="tap_drink">Toca la limonada para beberla</string>
+    <string name="tap_restart">Toca el vaso vacío para empezar otra vez</string>
+</resources>
