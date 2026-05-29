@@ -11,7 +11,6 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-// ── Estado de la UI ──────────────────────────────────────────────────────────
 data class PostUiState(
     val posts: List<Post> = emptyList(),
     val isLoading: Boolean = false,
@@ -22,13 +21,11 @@ class PostViewModel(
     private val repository: PostRepository = PostApiRepository()
 ) : ViewModel() {
 
-    // Encapsulamiento: privado con guion bajo, público de solo lectura
     private val _state = MutableStateFlow(PostUiState())
     val state: StateFlow<PostUiState> = _state.asStateFlow()
 
     fun loadPosts() {
         viewModelScope.launch {
-            // Estado: Loading
             _state.update { it.copy(isLoading = true, error = null) }
 
             repository.getPosts()
@@ -53,7 +50,7 @@ class PostViewModel(
             val newPost = Post(id = 0, userId = 1, title = title, body = body)
             repository.createPost(newPost)
                 .onSuccess { createdPost ->
-                    // JSONPlaceholder devuelve id=101; lo insertamos al inicio de la lista
+
                     _state.update {
                         it.copy(
                             posts = listOf(createdPost) + it.posts,

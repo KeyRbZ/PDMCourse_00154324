@@ -19,7 +19,7 @@ data class PostDto(
     val body: String = ""
 )
 
-// Mapper: DTO → Modelo de dominio
+
 fun PostDto.toModel(): Post = Post(
     id = id,
     userId = userId,
@@ -27,7 +27,7 @@ fun PostDto.toModel(): Post = Post(
     body = body
 )
 
-// Mapper inverso: Modelo → DTO (para peticiones POST)
+
 fun Post.toDto(): PostDto = PostDto(
     id = id,
     userId = userId,

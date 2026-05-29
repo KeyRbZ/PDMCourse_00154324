@@ -52,7 +52,6 @@ fun PostsScreen(
     val state by viewModel.state.collectAsState()
     var showCreateDialog by remember { mutableStateOf(false) }
 
-    // Carga inicial al entrar a la pantalla
     LaunchedEffect(Unit) {
         viewModel.loadPosts()
     }
@@ -73,21 +72,18 @@ fun PostsScreen(
             }
         }
     ) { innerPadding ->
-        // innerPadding evita que el contenido se traslape con TopBar/BottomBar
         Box(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
         ) {
             when {
-                // ── Estado: Loading ──────────────────────────────────────
                 state.isLoading -> {
                     CircularProgressIndicator(
                         modifier = Modifier.align(Alignment.Center)
                     )
                 }
 
-                // ── Estado: Error ────────────────────────────────────────
                 state.error != null -> {
                     ErrorState(
                         message = state.error!!,
@@ -96,7 +92,6 @@ fun PostsScreen(
                     )
                 }
 
-                // ── Estado: Éxito con Pull-to-Refresh ────────────────────
                 else -> {
                     PullToRefreshBox(
                         isRefreshing = false,
@@ -109,7 +104,6 @@ fun PostsScreen(
             }
         }
 
-        // Diálogo para crear post
         if (showCreateDialog) {
             CreatePostDialog(
                 onDismiss = { showCreateDialog = false },
@@ -121,10 +115,6 @@ fun PostsScreen(
         }
     }
 }
-
-// ─────────────────────────────────────────────────────────────────────────────
-// Sub-Composables
-// ─────────────────────────────────────────────────────────────────────────────
 
 @Composable
 fun PostsList(
@@ -177,7 +167,7 @@ fun ErrorState(
         verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
         Text(
-            text = "⚠️ Ocurrió un error",
+            text = "Ocurrió un error",
             style = MaterialTheme.typography.titleMedium,
             fontWeight = FontWeight.Bold
         )
