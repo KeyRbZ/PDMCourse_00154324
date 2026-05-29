@@ -22,7 +22,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "jsonplaceholde"
-include(":app")
+rootProject.name = "AppMovie"
 include(":app")
  
